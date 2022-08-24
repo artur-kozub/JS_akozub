@@ -1,6 +1,19 @@
 const { I } = inject();
 
-
+let user = {
+  firstName:'Arthur',
+  lastName: 'Kozub',
+  password: '12345testing',
+  months: 'January',
+  days: '1',
+  years: '2022',
+  address: 'Kosmonavtiv, 12',
+  city: 'Odesa',
+  idState: 'Alabama',
+  postcode: '65065',
+  phoneMobile: '+1234567890',
+  alias:'Kosmonavta Komarova 2-a',
+}
 
 module.exports = {
   firstName: {css: '#customer_firstname'},
@@ -19,19 +32,19 @@ module.exports = {
 
   registration() {
     I.waitForVisible(this.firstName);
-    I.fillField(this.firstName, 'Arthur');
-    I.waitForVisible(this.lastName);
-    I.fillField(this.lastName, 'Kozub');
-    I.fillField(this.password, '12345testing');
-    I.fillField(this.months, 'January');
-    I.fillField(this.days, '1');
-    I.fillField(this.years, '2022');
-    I.fillField(this.address, 'Kosmonavtiv, 12');
-    I.fillField(this.city, 'Odesa');
-    I.fillField(this.idState, 'Alabama');
-    I.fillField(this.postcode, '65065');
-    I.fillField(this.phoneMobile, '+1234567890');
-    I.fillField(this.alias, 'Kosmonavat Komarova 2-a');
+    I.fillField(this.firstName, user.firstName);
+    //I.waitForVisible(this.lastName);
+    I.fillField(this.lastName, user.lastName);
+    I.fillField(this.password, user.password);
+    I.fillField(this.months, user.months);
+    I.fillField(this.days, user.days);
+    I.fillField(this.years, user.years);
+    I.fillField(this.address, user.address);
+    I.fillField(this.city, user.city);
+    I.fillField(this.idState, user.idState);
+    I.fillField(this.postcode, user.postcode);
+    I.fillField(this.phoneMobile, user.phoneMobile);
+    I.fillField(this.alias, user.alias);
     I.click(this.registerButton);
   }
 }
