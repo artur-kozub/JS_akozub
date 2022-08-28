@@ -1,5 +1,6 @@
 const { I } = inject();
 
+/*
 let user = {
   firstName:'Arthur',
   lastName: 'Kozub',
@@ -14,6 +15,7 @@ let user = {
   phoneMobile: '+1234567890',
   alias:'Kosmonavta Komarova 2-a',
 }
+*/
 
 module.exports = {
   firstName: {css: '#customer_firstname'},
@@ -30,7 +32,23 @@ module.exports = {
   alias: {css: '#alias'},
   registerButton: 'Register',
 
-  registration() {
+  register() {
+
+    let user = {
+      firstName:'Arthur',
+      lastName: 'Kozub',
+      password: '12345testing',
+      months: 'January',
+      days: '1',
+      years: '2022',
+      address: 'Kosmonavtiv, 12',
+      city: 'Odesa',
+      idState: 'Alabama',
+      postcode: '65065',
+      phoneMobile: '+1234567890',
+      alias:'Kosmonavta Komarova 2-a',
+    }
+
     I.waitForVisible(this.firstName);
     I.fillField(this.firstName, user.firstName);
     //I.waitForVisible(this.lastName);
@@ -46,5 +64,6 @@ module.exports = {
     I.fillField(this.phoneMobile, user.phoneMobile);
     I.fillField(this.alias, user.alias);
     I.click(this.registerButton);
+    I.see('My account');
   }
 }
