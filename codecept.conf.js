@@ -8,23 +8,31 @@ setCommonPlugins();
 
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
-  tests: 'store',
+  tests: './*_test.js',
   output: './output',
   helpers: {
     Playwright: {
       url: 'http://localhost',
       show: true,
       browser: 'chromium',
-      timeout: 25000,
-      waitForTimeout: 15000,
+      timeout: 30000,
+      waitForTimeout: 20000,
       waitForNavigation: 'networkidle',
-    }
+    },
+    ChaiWrapper : {
+      require: "codeceptjs-chai",
+    },
+    EmailCreator: {
+      require: './emailcreator_helper.js',
+    },
   },
   include: {
     I: './steps_file.js',
     homePage: './pages/home.js',
     authPage: './pages/auth.js',
     createAccountPage: './pages/createAccount.js',
+    productPage: './pages/product.js',
+    cartPage: './pages/cart.js',
   },
   name: 'JS_akozub'
 }

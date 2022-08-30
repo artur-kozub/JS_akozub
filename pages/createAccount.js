@@ -1,22 +1,8 @@
 const { I } = inject();
 
-let user = {
-  firstName:'Arthur',
-  lastName: 'Kozub',
-  password: '12345testing',
-  months: 'January',
-  days: '1',
-  years: '2022',
-  address: 'Kosmonavtiv, 12',
-  city: 'Odesa',
-  idState: 'Alabama',
-  postcode: '65065',
-  phoneMobile: '+1234567890',
-  alias:'Kosmonavta Komarova 2-a',
-}
 
 module.exports = {
-  firstName: {css: '#customer_firstname'},
+  firstNameField: {css: '#customer_firstname'},
   lastName: {css: '#customer_lastname'},
   password: {css: '#passwd'},
   days: {css: '#days'},
@@ -28,23 +14,24 @@ module.exports = {
   postcode: {css: '#postcode'},
   phoneMobile: {css: '#phone_mobile'},
   alias: {css: '#alias'},
-  registerButton: 'Register',
+  registerButton: {text: 'Register'},
 
-  registration() {
-    I.waitForVisible(this.firstName);
-    I.fillField(this.firstName, user.firstName);
-    //I.waitForVisible(this.lastName);
-    I.fillField(this.lastName, user.lastName);
-    I.fillField(this.password, user.password);
-    I.fillField(this.months, user.months);
-    I.fillField(this.days, user.days);
-    I.fillField(this.years, user.years);
-    I.fillField(this.address, user.address);
-    I.fillField(this.city, user.city);
-    I.fillField(this.idState, user.idState);
-    I.fillField(this.postcode, user.postcode);
-    I.fillField(this.phoneMobile, user.phoneMobile);
-    I.fillField(this.alias, user.alias);
+  register(firstName, lastName, password, months, days, years, address, city, idState, postcode, phoneMobile, alias,) {
+
+    I.waitForVisible(this.firstNameField);
+    I.fillField(this.firstNameField, firstName);
+    I.fillField(this.lastName, lastName);
+    I.fillField(this.password, password);
+    I.fillField(this.months, months);
+    I.fillField(this.days, days);
+    I.fillField(this.years, years);
+    I.fillField(this.address, address);
+    I.fillField(this.city, city);
+    I.fillField(this.idState, idState);
+    I.fillField(this.postcode, postcode);
+    I.fillField(this.phoneMobile, phoneMobile);
+    I.fillField(this.alias, alias);
     I.click(this.registerButton);
+    I.see('My account');
   }
 }
