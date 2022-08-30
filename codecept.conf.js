@@ -21,7 +21,10 @@ exports.config = {
     },
     ChaiWrapper : {
       require: "codeceptjs-chai",
-    }
+    },
+    EmailCreator: {
+      require: './emailcreator_helper.js',
+    },
   },
   include: {
     I: './steps_file.js',

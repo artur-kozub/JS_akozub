@@ -2,18 +2,19 @@ const { I } = inject();
 
 module.exports = {
   productPrice: {css: '#our_price_display'},
-  total: {css: '#total_price'},
-  string: {xpath: "//*[@id='center_column']/div/text()[6]"},
+  totalPrice: {css: '#total_price'},
 
   async getProductPrice() {
     return await I.grabTextFrom(this.productPrice);
   },
 
-  async getTotal() {
-    return await I.grabTextFrom(this.total);
+  async getTotalPrice() {
+    return await I.grabTextFrom(this.totalPrice);
   },
 
   async getText() {
-    return await I.grabTextFromAll({xpath: "/html/body/div/div[2]/div/div[3]/div/div/text()[6]"});
+    let string = await I.grabTextFrom({css: "div.box"});
+    let substr = string.substring(245, 253);
+    console.log(`Your order has ID: ${substr}`);
   }
 };

@@ -13,7 +13,7 @@ module.exports = {
 
   registerEmail(email) {
     this._waitForPageLoad();
-    I.fillField(this.emailField, email);
+    I.fillField(this.emailRegisterField, email);
     I.click(this.createButton);
   },
 
